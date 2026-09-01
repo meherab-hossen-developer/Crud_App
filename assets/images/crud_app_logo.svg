@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="db" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5DB8F2"/>
+      <stop offset="1" stop-color="#1762D9"/>
+    </linearGradient>
+    <linearGradient id="top" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#347FF0"/>
+      <stop offset="1" stop-color="#1D4FC0"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-opacity=".16"/>
+    </filter>
+  </defs>
+
+  <rect x="45" y="45" width="934" height="934" rx="105" fill="#fff" stroke="#D8DEE8" stroke-width="3"/>
+
+  <!-- Database -->
+  <g filter="url(#shadow)">
+    <path d="M235 190 H590 V640 C590 705 510 748 412 748 C315 748 235 705 235 640 Z"
+          fill="url(#db)" stroke="#16458F" stroke-width="4"/>
+    <ellipse cx="412" cy="190" rx="177" ry="82" fill="url(#top)" stroke="#16458F" stroke-width="4"/>
+    <path d="M235 355 C235 420 315 462 412 462 C510 462 590 420 590 355"
+          fill="none" stroke="#fff" stroke-width="12"/>
+    <path d="M235 500 C235 565 315 607 412 607 C510 607 590 565 590 500"
+          fill="none" stroke="#fff" stroke-width="12"/>
+  </g>
+
+  <!-- Data panel -->
+  <g filter="url(#shadow)">
+    <rect x="370" y="270" width="405" height="440" rx="34" fill="#fff" stroke="#092747" stroke-width="18"/>
+    <rect x="410" y="325" width="285" height="54" rx="5" fill="#2D70DC"/>
+    <rect x="415" y="420" width="42" height="42" rx="5" fill="#2868D2"/>
+    <rect x="480" y="426" width="205" height="14" rx="7" fill="#B9C5D2"/>
+    <rect x="415" y="505" width="42" height="42" rx="5" fill="#2868D2"/>
+    <rect x="480" y="511" width="205" height="14" rx="7" fill="#B9C5D2"/>
+    <rect x="415" y="590" width="42" height="42" rx="5" fill="#2868D2"/>
+    <rect x="480" y="596" width="205" height="14" rx="7" fill="#B9C5D2"/>
+  </g>
+
+  <!-- Action buttons -->
+  <g filter="url(#shadow)">
+    <circle cx="748" cy="265" r="57" fill="#20A83B" stroke="#fff" stroke-width="7"/>
+    <path d="M748 232 V298 M715 265 H781" stroke="#fff" stroke-width="15" stroke-linecap="round"/>
+
+    <circle cx="748" cy="378" r="57" fill="#2568E5" stroke="#fff" stroke-width="7"/>
+    <path d="M725 400 L734 368 L772 330 L790 348 L752 386 Z"
+          fill="#fff"/>
+    <path d="M770 332 L788 350" stroke="#2568E5" stroke-width="5"/>
+
+    <circle cx="748" cy="491" r="57" fill="#FF970F" stroke="#fff" stroke-width="7"/>
+    <path d="M722 463 H774 M730 463 V450 H766 V463
+             M728 475 V512 M748 475 V512 M768 475 V512"
+          fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+
+    <circle cx="748" cy="604" r="57" fill="#4B20C9" stroke="#fff" stroke-width="7"/>
+    <circle cx="737" cy="593" r="23" fill="none" stroke="#fff" stroke-width="10"/>
+    <path d="M754 611 L780 637" stroke="#fff" stroke-width="11" stroke-linecap="round"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="512" y="850" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif" font-size="122" font-weight="800"
+        letter-spacing="8" fill="#092747">CRUD</text>
+
+  <line x1="225" y1="888" x2="390" y2="888" stroke="#2868D2" stroke-width="5"/>
+  <line x1="634" y1="888" x2="799" y2="888" stroke="#2868D2" stroke-width="5"/>
+  <text x="512" y="914" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="600"
+        letter-spacing="18" fill="#2868D2">APP</text>
+
+  <text x="512" y="956" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif" font-size="25" letter-spacing="2"
+        fill="#33445A">Create • Read • Update • Delete</text>
+</svg>

@@ -1,3 +1,4 @@
+import 'package:crud_app/ui/screens/splach_screen.dart';
 import 'package:flutter/material.dart';
 
 class TaskManagerApp extends StatelessWidget {
@@ -6,7 +7,7 @@ class TaskManagerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
+      home: SplashScreen(),
     );
   }
 }
