@@ -6,7 +6,7 @@ class ScreenBackground extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      
+
     );
   }
 }
