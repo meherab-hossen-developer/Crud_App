@@ -1,5 +1,6 @@
 import 'package:crud_app/ui/screens/login_screen.dart';
 import 'package:crud_app/ui/utils/assets_path.dart';
+import 'package:crud_app/ui/widgets/screen_background.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -11,7 +12,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   @override
   void initState() {
     super.initState();
@@ -30,11 +30,10 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center(
-        child: Stack(
-          children: [
-            SvgPicture.asset(AssetsPath.logoSvg, height: 150, width: 150),
-          ],
+      body: ScreenBackground(
+        child: Align(
+          alignment: Alignment.center,
+          child: SvgPicture.asset(AssetsPath.logoSvg, height: 150, width: 150),
         ),
       ),
     );
