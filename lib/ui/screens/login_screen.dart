@@ -1,4 +1,5 @@
 import 'package:crud_app/ui/screens/forgot_pass_screen.dart';
+import 'package:crud_app/ui/screens/main_navbar_holder_screen.dart';
 import 'package:crud_app/ui/screens/sign_up_screen.dart';
 import 'package:crud_app/ui/widgets/screen_background.dart';
 import 'package:flutter/gestures.dart';
@@ -44,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const SizedBox(height: 16),
                   FilledButton(
-                    onPressed: () {},
+                    onPressed: _ontapLoginButton,
                     child: Text(
                       'Login',
                       style: TextStyle(
@@ -98,6 +99,13 @@ class _LoginScreenState extends State<LoginScreen> {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => ForgotPassScreen()),
+    );
+  }
+
+  void _ontapLoginButton() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => MainNavbarHolderScreen()),
     );
   }
 
