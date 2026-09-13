@@ -1,4 +1,3 @@
-import 'package:crud_app/ui/widgets/screen_background.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/task_card.dart';
@@ -42,7 +41,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
               child: ListView.separated(
                 itemCount: 20,
                 itemBuilder: (context, index) {
-                  return TaskCard();
+                  return TaskCard(name: '', description: '', date: '',);
                 },
                 separatorBuilder: (context, index) {
                   return SizedBox(height: 8);

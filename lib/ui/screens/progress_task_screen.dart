@@ -1,8 +1,5 @@
-import 'package:crud_app/ui/widgets/screen_background.dart';
 import 'package:flutter/material.dart';
-
 import '../widgets/task_card.dart';
-import '../widgets/task_count_by_status_card.dart';
 
 class ProgressTaskScreen extends StatefulWidget {
   const ProgressTaskScreen({super.key});
@@ -21,7 +18,7 @@ class _ProgressTaskScreenState extends State<ProgressTaskScreen> {
           child: ListView.separated(
             itemCount: 20,
             itemBuilder: (context, index) {
-              return TaskCard();
+              return TaskCard(name: 'Title will be here', description: 'Description will be here', date: '21/04/2002',);
             },
             separatorBuilder: (context, index) {
               return SizedBox(height: 8);
