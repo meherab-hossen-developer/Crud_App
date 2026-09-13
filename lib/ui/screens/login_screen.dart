@@ -41,6 +41,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: 16),
                 FilledButton(
+                  style: FilledButton.styleFrom(
+                    backgroundColor: Colors.green.withOpacity(0.9),
+                    fixedSize: Size.fromWidth(double.maxFinite),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(26)
+                    )
+                  ),
                   onPressed: () {},
                   child: Icon(Icons.arrow_circle_right_outlined),
                 ),
