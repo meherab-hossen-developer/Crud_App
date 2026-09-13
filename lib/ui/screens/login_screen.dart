@@ -1,4 +1,5 @@
 import 'package:crud_app/ui/widgets/screen_background.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -41,22 +42,37 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: 16),
                 FilledButton(
-                  style: FilledButton.styleFrom(
-                    backgroundColor: Colors.green.withOpacity(0.9),
-                    fixedSize: Size.fromWidth(double.maxFinite),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(26)
-                    )
-                  ),
                   onPressed: () {},
-                  child: Icon(Icons.arrow_circle_right_outlined),
+                  child: Text(
+                    'Login',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
-                TextButton(onPressed: () {}, child: Text('Forgot Password?')),
+                TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Forgot Password?',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ),
                 RichText(
                   text: TextSpan(
-                    text: "Don't have an account?",
-                    style: TextStyle(color: Colors.black),
-                    children: [TextSpan(text: 'Sign up')],
+                    text: "Don't have an account? ",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    children: [
+                      TextSpan(
+                        text: 'Sign up',
+                        style: TextStyle(color: Colors.green),
+                        recognizer: TapGestureRecognizer()..onTap = () {}
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -65,5 +81,11 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+  @override
+  void dispose() {
+    _emailTEController.dispose();
+    _passTEController.dispose();
+    super.dispose();
   }
 }

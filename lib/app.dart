@@ -23,6 +23,15 @@ class TaskManagerApp extends StatelessWidget {
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(26),
           ),
+        ),
+        filledButtonTheme: FilledButtonThemeData(
+          style: FilledButton.styleFrom(
+            backgroundColor: Colors.green.withOpacity(0.8),
+            fixedSize: Size.fromWidth(double.maxFinite),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(26),
+            ),
+          ),
         )
       ),
       home: SplashScreen(),
