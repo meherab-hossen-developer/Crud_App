@@ -1,19 +1,18 @@
-import 'package:crud_app/ui/screens/forgot_pass_screen.dart';
-import 'package:crud_app/ui/screens/sign_up_screen.dart';
+import 'package:crud_app/ui/screens/login_screen.dart';
+import 'package:crud_app/ui/screens/pin_verification.dart';
 import 'package:crud_app/ui/widgets/screen_background.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class ForgotPassScreen extends StatefulWidget {
+  const ForgotPassScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<ForgotPassScreen> createState() => _ForgotPassScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _ForgotPassScreenState extends State<ForgotPassScreen> {
   final TextEditingController _emailTEController = TextEditingController();
-  final TextEditingController _passTEController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -29,24 +28,31 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    'Get Started With',
+                    'Your Email Address',
                     style: TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
                   ),
-                  const SizedBox(height: 24),
+                  SizedBox(height: 12),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.all(16),
+                      child: Text(
+                        'A 6 digit verification pin will send to your email address',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
                   TextFormField(
                     controller: _emailTEController,
                     decoration: InputDecoration(hintText: 'Email'),
                   ),
                   const SizedBox(height: 8),
-                  TextFormField(
-                    controller: _passTEController,
-                    decoration: InputDecoration(hintText: 'Password'),
-                  ),
                   const SizedBox(height: 16),
                   FilledButton(
-                    onPressed: () {},
+                    onPressed: _onTapSubmitButton,
                     child: Text(
-                      'Login',
+                      'Submit Now',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
@@ -54,26 +60,20 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
-                  TextButton(
-                    onPressed: _forgotPassButton,
-                    child: Text(
-                      'Forgot Password?',
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                  ),
+                  const SizedBox(height: 26),
                   RichText(
                     text: TextSpan(
-                      text: "Don't have an account? ",
+                      text: "Have account? ",
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w600,
                       ),
                       children: [
                         TextSpan(
-                          text: 'Sign up',
+                          text: 'Sign in',
                           style: TextStyle(color: Colors.green),
                           recognizer: TapGestureRecognizer()
-                            ..onTap = _onTapSignUpButton,
+                            ..onTap = _onTapSignInButton,
                         ),
                       ],
                     ),
@@ -87,24 +87,20 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  void _onTapSignUpButton() {
+  void _onTapSignInButton() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => SignUpScreen()),
+      MaterialPageRoute(builder: (context) => LoginScreen()),
     );
   }
 
-  void _forgotPassButton() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => ForgotPassScreen()),
-    );
+  void _onTapSubmitButton(){
+    Navigator.push(context, MaterialPageRoute(builder: (context) => PinVerification()));
   }
 
   @override
   void dispose() {
     _emailTEController.dispose();
-    _passTEController.dispose();
     super.dispose();
   }
 }

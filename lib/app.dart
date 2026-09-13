@@ -13,7 +13,7 @@ class TaskManagerApp extends StatelessWidget {
           filled: true,
           hintStyle: TextStyle(color: Colors.grey),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(26),
+            borderRadius: BorderRadius.circular(20),
             borderSide: BorderSide(color: Colors.black),
           ),
           enabledBorder: OutlineInputBorder(
@@ -21,7 +21,7 @@ class TaskManagerApp extends StatelessWidget {
             borderSide: BorderSide(color: Colors.black),
           ),
           errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(26),
+            borderRadius: BorderRadius.circular(20),
           ),
         ),
         filledButtonTheme: FilledButtonThemeData(
@@ -32,7 +32,7 @@ class TaskManagerApp extends StatelessWidget {
               borderRadius: BorderRadius.circular(26),
             ),
           ),
-        )
+        ),
       ),
       home: SplashScreen(),
     );

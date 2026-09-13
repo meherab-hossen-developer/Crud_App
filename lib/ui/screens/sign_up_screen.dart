@@ -1,19 +1,20 @@
-import 'package:crud_app/ui/screens/forgot_pass_screen.dart';
-import 'package:crud_app/ui/screens/sign_up_screen.dart';
 import 'package:crud_app/ui/widgets/screen_background.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _emailTEController = TextEditingController();
   final TextEditingController _passTEController = TextEditingController();
+  final TextEditingController _firstNameTEController = TextEditingController();
+  final TextEditingController _lastNameTEController = TextEditingController();
+  final TextEditingController _mobileTEController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -26,10 +27,10 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Form(
               key: _formKey,
               child: Column(
-                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Get Started With',
+                    'Join With Us',
                     style: TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
                   ),
                   const SizedBox(height: 24),
@@ -39,14 +40,29 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const SizedBox(height: 8),
                   TextFormField(
+                    controller: _firstNameTEController,
+                    decoration: InputDecoration(hintText: 'First Name'),
+                  ),
+                  const SizedBox(height: 8),
+                  TextFormField(
+                    controller: _lastNameTEController,
+                    decoration: InputDecoration(hintText: 'Last Name'),
+                  ),
+                  const SizedBox(height: 8),
+                  TextFormField(
+                    controller: _mobileTEController,
+                    decoration: InputDecoration(hintText: 'Mobile'),
+                  ),
+                  const SizedBox(height: 8),
+                  TextFormField(
                     controller: _passTEController,
                     decoration: InputDecoration(hintText: 'Password'),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 20),
                   FilledButton(
                     onPressed: () {},
                     child: Text(
-                      'Login',
+                      'Sign Up',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
@@ -54,26 +70,20 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
-                  TextButton(
-                    onPressed: _forgotPassButton,
-                    child: Text(
-                      'Forgot Password?',
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                  ),
+                  const SizedBox(height: 26),
                   RichText(
                     text: TextSpan(
-                      text: "Don't have an account? ",
+                      text: "Have account? ",
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w600,
                       ),
                       children: [
                         TextSpan(
-                          text: 'Sign up',
+                          text: 'Login',
                           style: TextStyle(color: Colors.green),
                           recognizer: TapGestureRecognizer()
-                            ..onTap = _onTapSignUpButton,
+                            ..onTap = _onTapLoginButton,
                         ),
                       ],
                     ),
@@ -87,24 +97,17 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  void _onTapSignUpButton() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => SignUpScreen()),
-    );
-  }
-
-  void _forgotPassButton() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => ForgotPassScreen()),
-    );
+  void _onTapLoginButton() {
+    Navigator.pop(context);
   }
 
   @override
   void dispose() {
     _emailTEController.dispose();
     _passTEController.dispose();
+    _firstNameTEController.dispose();
+    _lastNameTEController.dispose();
+    _mobileTEController.dispose();
     super.dispose();
   }
 }
