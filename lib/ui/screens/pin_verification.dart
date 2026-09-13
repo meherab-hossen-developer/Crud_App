@@ -1,3 +1,4 @@
+import 'package:crud_app/ui/screens/set_password.dart';
 import 'package:crud_app/ui/widgets/screen_background.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -64,7 +65,7 @@ class _PinVerificationState extends State<PinVerification> {
                   ),
                   const SizedBox(height: 16),
                   FilledButton(
-                    onPressed: () {},
+                    onPressed: _onTapSubmitButton,
                     child: Text(
                       'Verify',
                       style: TextStyle(
@@ -106,6 +107,13 @@ class _PinVerificationState extends State<PinVerification> {
       context,
       MaterialPageRoute(builder: (context) => LoginScreen()),
       (predicate) => false,
+    );
+  }
+
+  void _onTapSubmitButton() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SetPassword()),
     );
   }
 

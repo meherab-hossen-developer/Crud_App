@@ -46,12 +46,16 @@ class _SetPasswordState extends State<SetPassword> {
                   const SizedBox(height: 8),
                   TextFormField(
                     controller: _setPassTEController,
-                    decoration: InputDecoration(hintText: 'Email'),
+                    decoration: InputDecoration(hintText: 'New Password'),
                   ),
                   const SizedBox(height: 8),
+                  TextFormField(
+                    controller: _confirmPassTEController,
+                    decoration: InputDecoration(hintText: 'Confirm Password'),
+                  ),
                   const SizedBox(height: 16),
                   FilledButton(
-                    onPressed: _onTapSubmitButton,
+                    onPressed: () {},
                     child: Text(
                       'Submit Now',
                       style: TextStyle(
@@ -62,23 +66,6 @@ class _SetPasswordState extends State<SetPassword> {
                     ),
                   ),
                   const SizedBox(height: 26),
-                  RichText(
-                    text: TextSpan(
-                      text: "Have account? ",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      children: [
-                        TextSpan(
-                          text: 'Sign in',
-                          style: TextStyle(color: Colors.green),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = _onTapSignInButton,
-                        ),
-                      ],
-                    ),
-                  ),
                 ],
               ),
             ),
@@ -88,20 +75,13 @@ class _SetPasswordState extends State<SetPassword> {
     );
   }
 
-  void _onTapSignInButton() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => LoginScreen()),
-    );
-  }
-
   void _onTapSubmitButton(){
     Navigator.push(context, MaterialPageRoute(builder: (context) => PinVerification()));
   }
 
   @override
   void dispose() {
-    _emailTEController.dispose();
+    _setPassTEController.dispose();
     super.dispose();
   }
 }
