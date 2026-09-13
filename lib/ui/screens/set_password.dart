@@ -1,18 +1,19 @@
+import 'package:crud_app/ui/screens/login_screen.dart';
+import 'package:crud_app/ui/screens/pin_verification.dart';
 import 'package:crud_app/ui/widgets/screen_background.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
-import 'login_screen.dart';
 
-class PinVerification extends StatefulWidget {
-  const PinVerification({super.key});
+class SetPassword extends StatefulWidget {
+  const SetPassword({super.key});
 
   @override
-  State<PinVerification> createState() => _PinVerificationState();
+  State<SetPassword> createState() => _SetPasswordState();
 }
 
-class _PinVerificationState extends State<PinVerification> {
-  final TextEditingController _otpTEController = TextEditingController();
+class _SetPasswordState extends State<SetPassword> {
+  final TextEditingController _setPassTEController = TextEditingController();
+  final TextEditingController _confirmPassTEController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -28,7 +29,7 @@ class _PinVerificationState extends State<PinVerification> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    'PIN Verification',
+                    'Your Email Address',
                     style: TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
                   ),
                   SizedBox(height: 12),
@@ -43,30 +44,16 @@ class _PinVerificationState extends State<PinVerification> {
                     ),
                   ),
                   const SizedBox(height: 8),
-                  PinCodeTextField(
-                    length: 6,
-                    obscureText: false,
-                    animationType: AnimationType.fade,
-                    keyboardType: TextInputType.number,
-                    pinTheme: PinTheme(
-                      shape: PinCodeFieldShape.box,
-                      borderRadius: BorderRadius.circular(5),
-                      fieldHeight: 50,
-                      fieldWidth: 40,
-                      inactiveFillColor: Colors.grey.withOpacity(0.4),
-                      activeFillColor: Colors.white,
-                      selectedFillColor: Colors.white,
-                    ),
-                    animationDuration: Duration(milliseconds: 300),
-                    enableActiveFill: true,
-                    controller: _otpTEController,
-                    appContext: context,
+                  TextFormField(
+                    controller: _setPassTEController,
+                    decoration: InputDecoration(hintText: 'Email'),
                   ),
+                  const SizedBox(height: 8),
                   const SizedBox(height: 16),
                   FilledButton(
-                    onPressed: () {},
+                    onPressed: _onTapSubmitButton,
                     child: Text(
-                      'Verify',
+                      'Submit Now',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
@@ -102,16 +89,19 @@ class _PinVerificationState extends State<PinVerification> {
   }
 
   void _onTapSignInButton() {
-    Navigator.pushAndRemoveUntil(
+    Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => LoginScreen()),
-      (predicate) => false,
     );
+  }
+
+  void _onTapSubmitButton(){
+    Navigator.push(context, MaterialPageRoute(builder: (context) => PinVerification()));
   }
 
   @override
   void dispose() {
-    _otpTEController.dispose();
+    _emailTEController.dispose();
     super.dispose();
   }
 }
