@@ -1,4 +1,8 @@
+import 'package:crud_app/ui/widgets/screen_background.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/task_card.dart';
+import '../widgets/task_count_by_status_card.dart';
 
 class ProgressTaskScreen extends StatefulWidget {
   const ProgressTaskScreen({super.key});
@@ -10,6 +14,21 @@ class ProgressTaskScreen extends StatefulWidget {
 class _ProgressTaskScreenState extends State<ProgressTaskScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Expanded(
+          child: ListView.separated(
+            itemCount: 20,
+            itemBuilder: (context, index) {
+              return TaskCard();
+            },
+            separatorBuilder: (context, index) {
+              return SizedBox(height: 8);
+            },
+          ),
+        ),
+      ),
+    );
   }
 }
